@@ -1,0 +1,16 @@
+name: HyperExecute
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  HE:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          wget https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+          chmod +x hyperexecute
+          ./hyperexecute --config he.yml --user erbeusgriffincasper --key ${{ secrets.HE }}  
